@@ -1,0 +1,25 @@
+<% include partials/header %>
+
+  <div class="ui main text container segment">
+    <div class="ui huge header"><%= todo.todo %>
+    </div>
+    <div class="ui top attached">
+      <div class="item">
+        <div class="content">
+          <span><%= todo.created.toDateString() %></span>
+        </div>
+        <div class="description">
+          <p><%- todo.explanation %></p>
+        </div>
+        <a class="ui orange basic button"href="/index/<%= todo._id%>/edit">Edit</a>
+        <form id="formInline" action="/index/<%= todo._id%>?_method=DELETE" method="POST">
+          <button class="ui red basic button" name="button">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <% include partials/footer %>

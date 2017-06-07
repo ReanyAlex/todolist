@@ -1,0 +1,47 @@
+<% include partials/header %>
+
+
+
+  <div class="ui main text container">
+    <div class="ui huge header">RESTful Todo App</div>
+    <div class="ui top attached segment">
+      <div class="ui divded items">
+        <!-- goes through and populates todo list -->
+        <% todos.forEach(function(todos){ %>
+          <div class="item">
+            <div class="content">
+              <div id="formInline">
+                <a class="" href="/index/<%= todos._id %>">
+                  <%= todos.todo %>
+                </a>
+              </div>
+              <div id="formInline" class="floatRight">
+                <button onclick="strike(this)"><i class="checkmark box icon"></i></button>
+                <a class="" href="/index/<%= todos._id %>/edit">
+                  <button><i class="edit icon"></i></button>
+                </a>
+                <form id="formInline" action="/index/<%= todos._id%>?_method=DELETE" method="POST">
+                  <button class="" name="button"><i class="trash outline icon delete"></i></button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+
+        <form class="ui form" action="/index" method="POST">
+          <div class="field">
+          <label>New Todo</label>
+          <input type="text" name="todo" value="">
+        </div>
+          <div class="field">
+          <label>Todo Description</label>
+          <input type="text" name="explanation" placeholder="Optional">
+        </div>
+          <input type="submit">
+        </form>
+
+    </div>
+  </div>
+
+  <% include partials/footer %>
