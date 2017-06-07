@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+  <div class="ui main text container segment">
+    <div class="ui huge header">
+      Edit - <%= todo.todo %>
+    </div>
+    <form class="ui form" action="/index/<%= todo._id %>?_method=PUT" method="POST">
+      <div class="field">
+        <label>Title</label>
+        <input type="text" name="todo[todo]" value="<%= todo.todo %>">
+      </div>
+      <div class="field">
+        <label>Todo Description</label>
+        <textarea name="todo[explanation]" rows="8" cols="80"> <%- todo.explanation %> </textarea>
+      </div>
+        <input class="ui blue inverted big button" type="submit">
+    </form>
+    </div>
+
+
+
+
+  <% include partials/footer %>
